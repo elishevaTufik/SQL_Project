@@ -1,0 +1,47 @@
+--STORED PROCED
+
+--1
+CREATE PROCEDURE Hefresh(@a smallint, @b smallint)
+AS
+	BEGIN
+		PRINT ABS(@a-@b)
+	END
+GO
+EXEC HEFRESH 4,8
+
+--2
+CREATE PROCEDURE ZOOGI(@NUM smallint)
+AS
+	BEGIN
+	IF @NUM%2=0
+		PRINT 'ZOOGI'
+	ELSE
+	PRINT 'NOT ZOOGI'
+	END
+GO
+EXEC ZOOGI 7
+
+--3
+CREATE PROCEDURE SALARY(@NUM INT)
+AS
+	BEGIN
+
+	SELECT FirstName
+	FROM Employee_tbl E JOIN Employee_pay_tbl EP
+	ON E.EmpID=EP.EmpID
+	WHERE Salary<@NUM
+	END
+GO
+EXEC SALARY 10000
+
+--4
+CREATE PROCEDURE ADD1(@NUM INT)
+AS
+	BEGIN
+	SELECT FirstName
+	FROM Employee_tbl E JOIN Employee_pay_tbl EP
+	ON E.EmpID=EP.EmpID
+	WHERE Salary<@NUM
+	END
+GO
+EXEC ADD1 10000
